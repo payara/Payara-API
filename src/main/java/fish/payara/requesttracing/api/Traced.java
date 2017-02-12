@@ -47,6 +47,8 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
+ * Interceptor binding indicating that a method should be traced using the
+ * Request Tracing Service.
  * @author mertcaliskan
  */
 @InterceptorBinding

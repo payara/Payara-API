@@ -49,9 +49,10 @@ import javax.enterprise.util.Nonbinding;
 import javax.inject.Qualifier;
 
 /**
- * Annotation to be applied to a Cache @Inject point to define the cache configuration
- * for the Producer to configure the cache
- * @author steve
+ * Annotation to be used in a CDI Event Generator to indicate it wants to 
+ * Send CDI events outbound into the cluster via the Clustered
+ * CDI Event Bus
+ * @author Steve Millidge (Payara Service Limited)
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
