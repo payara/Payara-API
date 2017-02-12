@@ -36,7 +36,7 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
-package fish.payara.cdi.jsr107.impl;
+package fish.payara.jcache.api;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -55,62 +55,63 @@ import static java.lang.annotation.ElementType.*;
 public @interface NamedCache {
     /**
      * The name of the Cache in the Cache Manager
-     * @return
+     * @return cacheName
      */
     String cacheName() default "";
 
     /**
      * The class of the Cache Keys
-     * @return
+     * @return keyClass
      */
     Class keyClass() default Object.class;
 
     /**
      * The class of the cache values
-     * @return
+     * @return valueClass
      */
     Class valueClass() default Object.class;
 
     /**
      * Are statistics enabled for the cache
-     * @return
+     * @return statisticsEnabled
      */
     boolean statisticsEnabled() default false;
 
     /**
      * Is Managemenet Enabled for the Cache
-     * @return
+     * @return managementEnabled
      */
     boolean managementEnabled() default false;
 
     /**
      * Is the cache configured for read through. If this is set to true a CacheLoader factory
      * class must also be specified
-     * @return
+     * @return readThrough
      */
     boolean readThrough() default false;
 
     /**
      * Is the cache configured for write through. If this is set a CacheWriter factory
      * class must be specified
-     * @return
+     * @return writeThrough
      */
     boolean writeThrough() default false;
 
     /**
      * The factory class of the CacheLoader to be attached to the cache
-     * @return
+     * @return cacheLoaderFactoryClass
      */
     Class cacheLoaderFactoryClass() default Object.class;
 
     /**
      * The factory class of the CacheWriter to be attached to the cache
-     * @return
+     * @return cacheWriterFactoryClass
      */
     Class cacheWriterFactoryClass() default Object.class;
 
     /**
      * The class of the expiry policy factory used to create an expiry policy for the cache
+     * @return expiryPolicyFactoryClass
      */
     Class expiryPolicyFactoryClass() default Object.class;
 }

@@ -1,4 +1,5 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
  * Copyright (c) 2016 Payara Foundation and/or its affiliates. All rights reserved.
  *
@@ -36,22 +37,19 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
-package fish.payara.requesttracing.api;
-
-import javax.interceptor.InterceptorBinding;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
-import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+package fish.payara.micro.cdi;
 
 /**
- * Interceptor binding indicating that a method should be traced using the
- * Request Tracing Service.
- * @author mertcaliskan
+ * Interface for the ClusteredCDIEventBus
+ * @author Steve Millidge (Payara Services Limited)
  */
-@InterceptorBinding
-@Target({ TYPE, METHOD })
-@Retention(RUNTIME)
-public @interface Traced {}
+public interface ClusteredCDIEventBus {
+
+    /**
+     * From 171 onwards the Initialize method does not need to be called
+     * for a CDI application packaged in a war file. 
+     * 
+     */
+    public void initialize();
+    
+}

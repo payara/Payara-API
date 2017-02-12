@@ -1,4 +1,5 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
  * Copyright (c) 2016 Payara Foundation and/or its affiliates. All rights reserved.
  *
@@ -36,22 +37,31 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
-package fish.payara.requesttracing.api;
+package fish.payara.micro.cdi;
 
-import javax.interceptor.InterceptorBinding;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
+import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import static java.lang.annotation.ElementType.PARAMETER;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import javax.inject.Qualifier;
 
 /**
- * Interceptor binding indicating that a method should be traced using the
- * Request Tracing Service.
- * @author mertcaliskan
+ * Annotation to be used in an Event Observer to indicate it wants to 
+ * Observe messages received Inbound from the cluster from the Clustered
+ * CDI Event Bus
+ * @author Steve Millidge (Payara Service Limited)
  */
-@InterceptorBinding
-@Target({ TYPE, METHOD })
-@Retention(RUNTIME)
-public @interface Traced {}
+@Retention(RetentionPolicy.RUNTIME)
+@Qualifier
+@Target({METHOD, FIELD, PARAMETER})
+public @interface Inbound {
+    
+    /**
+     * The name of the event which can be used for further scoping down the
+     * messages you are interested in
+     * @return eventName
+     */
+    String eventName() default "";
+}

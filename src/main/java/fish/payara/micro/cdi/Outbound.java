@@ -1,4 +1,5 @@
 /*
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
  *
  * Copyright (c) 2016 Payara Foundation and/or its affiliates. All rights reserved.
  *
@@ -36,22 +37,52 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
-package fish.payara.requesttracing.api;
+package fish.payara.micro.cdi;
 
-import javax.interceptor.InterceptorBinding;
-import java.lang.annotation.Retention;
-import java.lang.annotation.Target;
-
+import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
-import static java.lang.annotation.ElementType.TYPE;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import static java.lang.annotation.ElementType.PARAMETER;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import javax.enterprise.util.Nonbinding;
+import javax.inject.Qualifier;
 
 /**
- * Interceptor binding indicating that a method should be traced using the
- * Request Tracing Service.
- * @author mertcaliskan
+ * Annotation to be used in a CDI Event Generator to indicate it wants to 
+ * Send CDI events outbound into the cluster via the Clustered
+ * CDI Event Bus
+ * @author Steve Millidge (Payara Service Limited)
  */
-@InterceptorBinding
-@Target({ TYPE, METHOD })
-@Retention(RUNTIME)
-public @interface Traced {}
+@Retention(RetentionPolicy.RUNTIME)
+@Qualifier
+@Target({METHOD, FIELD, PARAMETER})
+public @interface Outbound {
+    
+    /**
+     * Provides a further level of filtering. Specify an eventname to restrict
+     * event callbacks to events with the specific name
+     * @return eventName
+     */
+    @Nonbinding
+    String eventName() default "";
+    
+    /**
+     * Property to set whether the message should also fire on the same instance as well
+     * default is false it won't be fired as an Inbound message on the same instance
+     * @return true if loopback enabled
+     */
+    @Nonbinding
+    boolean loopBack() default false;
+    
+    /**
+     * Property to restrict the outbound event to specific named server or micro
+     * instances. Default behavior is to fire on all server and micro instances.
+     * Set one or more instance names to restrict the event to firing only on
+     * the specified instances.
+     *
+     * @return
+     */
+    @Nonbinding
+    String[] instanceName() default "";
+}
