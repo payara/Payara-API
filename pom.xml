@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fish.payara</groupId>
     <artifactId>payara-api</artifactId>
-    <version>4.1.1.172-SNAPSHOT</version>
+    <version>4.1.1.171</version>
     <name>payara-api</name>
     <description>Artefact that exposes public API of Payara Application Server</description>
     <url>http://payara.fish</url>
@@ -22,7 +22,10 @@
     </licenses>
 
     <scm>
+        <connection>scm:git:git@github.com:payara/payara-api.git</connection>
         <url>https://github.com/payara/Payara-API.git</url>
+        <developerConnection>scm:git:git@github.com:payara/payara-api.git</developerConnection>
+        <tag>4.1.1.171</tag>
     </scm>
 
     <developers>
