@@ -25,7 +25,7 @@
         <connection>scm:git:git@github.com:payara/payara-api.git</connection>
         <url>https://github.com/payara/Payara-API.git</url>
         <developerConnection>scm:git:git@github.com:payara/payara-api.git</developerConnection>
-        <tag>4.1.1.172-SNAPSHOT</tag>
+        <tag>4.1.1.171</tag>
     </scm>
 
     <developers>
