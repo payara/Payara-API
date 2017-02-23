@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>fish.payara</groupId>
+    <groupId>fish.payara.api</groupId>
     <artifactId>payara-api</artifactId>
-    <version>4.1.1.172-SNAPSHOT</version>
-    <name>payara-api</name>
+    <version>4.1.1.171</version>
+    <name>Payara-API</name>
     <description>Artefact that exposes public API of Payara Application Server</description>
     <url>http://payara.fish</url>
 
