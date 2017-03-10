@@ -106,7 +106,7 @@
                         <configuration>
                             <instructions>
                                 <Export-Package>
-                                    fish.payara.cdr.js107.impl,
+                                    fish.payara.cdi.jsr107.impl,
                                     fish.payara.micro.cdi,
                                     fish.payara.nucleus.requesttracing.api
                                 </Export-Package>
