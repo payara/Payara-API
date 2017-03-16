@@ -105,6 +105,11 @@
                         </goals>
                         <configuration>
                             <instructions>
+                                <Import-Package>
+                                    fish.payara.nucleus.notification.domain,
+                                    fish.payara.nucleus.notification.service,
+                                    fish.payara.cdi.jsr107.implementation
+                                </Import-Package>
                                 <Export-Package>
                                     fish.payara.cdi.jsr107.impl,
                                     fish.payara.micro.cdi,

@@ -38,16 +38,14 @@
  */
 package fish.payara.notification.eventbus;
 
-import fish.payara.nucleus.notification.service.Message;
-
 /**
  * @author mertcaliskan
  */
-public class EventbusMessage extends Message {
-
-    public EventbusMessage(EventbusNotificationEvent event, String subject, String message) {
-        this.subject = subject;
-        this.message = message;
-        addIdentifyingInfo(event);
-    }
+public interface EventbusMessage {
+    String getHost();
+    String getServerName();
+    String getDomain();
+    String getInstance();
+    String getSubject();
+    String getMessage();
 }
