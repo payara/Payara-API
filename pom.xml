@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>fish.payara.api</groupId>
     <artifactId>payara-api</artifactId>
-    <version>4.1.1.171.1</version>
+    <version>4.1.1.172-SNAPSHOT</version>
     <name>Payara-API</name>
     <description>Artefact that exposes public API of Payara Application Server</description>
     <url>http://payara.fish</url>
@@ -108,7 +108,9 @@
                                 <Import-Package>
                                     fish.payara.nucleus.notification.domain,
                                     fish.payara.nucleus.notification.service,
-                                    fish.payara.cdi.jsr107.implementation
+                                    fish.payara.cdi.jsr107.implementation,
+                                    javax.inject,
+                                    javax.enterprise.util
                                 </Import-Package>
                                 <Export-Package>
                                     fish.payara.cdi.jsr107.impl,
