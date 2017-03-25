@@ -105,10 +105,18 @@
                         </goals>
                         <configuration>
                             <instructions>
+                                <Import-Package>
+                                    fish.payara.nucleus.notification.domain,
+                                    fish.payara.nucleus.notification.service,
+                                    fish.payara.cdi.jsr107.implementation
+                                </Import-Package>
                                 <Export-Package>
                                     fish.payara.cdi.jsr107.impl,
                                     fish.payara.micro.cdi,
-                                    fish.payara.nucleus.requesttracing.api
+                                    fish.payara.nucleus.requesttracing.api,
+                                    fish.payara.notification.eventbus,
+                                    fish.payara.nucleus.notification.domain,
+                                    fish.payara.nucleus.notification.service
                                 </Export-Package>
                             </instructions>
                         </configuration>
